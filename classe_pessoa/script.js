@@ -1,43 +1,28 @@
-class Produto {
+class Pessoa {
   nome;
-  preco;
-  quantidade;
+  idade;
+  profissao;
 
-  constructor(nome, preco, quantidade) {
+  constructor(nome, idade, profissao) {
     this.nome = nome;
-    this.preco = preco;
-    this.quantidade = quantidade;
-  }
-
-  vender(qtdeVendida) {
-    if (qtdeVendida > this.quantidade) {
-      console.log("Produto com estoque insuficiente!");
-      return;
-    }
-    this.quantidade -= qtdeVendida;
-    console.log(`Seu Estoque atual é de ${this.quantidade}`);
-  }
-
-  repor(qtdeEntrada) {
-    this.quantidade += qtdeEntrada;
-    console.log(`Seu Estoque atual é de ${this.quantidade}`);
-  }
-
-  mostrar() {
-    console.log(`O produto ${this.nome} possui ${this.quantidade} unidades em estoque.`);
-  }
-
-  atualizarPreco(atualizar){
-    this.preco = atualizar;
-    console.log(`Preço alterado com sucesso: preço atual R$ ${this.preco}`);
-
+    this.idade = idade;
+    this.profissao = profissao;
   }
 }
 
-let produto = new Produto("Caneta", "1,50", 10);
-produto.vender(5);
-produto.repor(6);
-produto.mostrar();
-produto.atualizarPreco("2,00")
+class Cliente extends Pessoa {
+  telefone;
+  email;
+  clienteDesde;
 
-console.log(produto);
+  constructor(nome, idade, profissao, telefone, email, clienteDesde){
+    super(nome, idade, profissao);
+    this.telefone = telefone;
+    this.email = email;
+    this.clienteDesde = clienteDesde;
+  }
+}
+
+let cliente = new Cliente("Alex", 35, "Adm", "(48)90000-0000", "email@email.com", "2020-05-19");
+
+console.log(cliente);
