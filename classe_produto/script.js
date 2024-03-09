@@ -11,7 +11,7 @@ class Produto {
 
   Vender(qtdeVendida) {
     if (qtdeVendida > this.quantidade) {
-      console.log("Produto com estoque insuficiente!");
+      console.log(`Produto com estoque insuficiente!\nEstoque atual: ${this.quantidade}`);
       return;
     }
     this.quantidade -= qtdeVendida;
@@ -31,11 +31,12 @@ class Produto {
 
   AtualizarPreco(atualizar) {
     this.preco = atualizar;
-    console.log(`Preço alterado com sucesso: preço atual R$ ${this.preco}`);
+    console.log(`Preço alterado com sucesso!\nPreço atual R$ ${this.preco}`);
   }
 }
 
 let produto = new Produto("Caneta", "1,50", 10);
+produto.Vender(11);
 produto.Vender(5);
 produto.Repor(6);
 produto.Mostrar();
