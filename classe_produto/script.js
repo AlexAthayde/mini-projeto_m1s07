@@ -9,7 +9,7 @@ class Produto {
     this.quantidade = quantidade;
   }
 
-  vender(qtdeVendida) {
+  Vender(qtdeVendida) {
     if (qtdeVendida > this.quantidade) {
       console.log("Produto com estoque insuficiente!");
       return;
@@ -18,26 +18,27 @@ class Produto {
     console.log(`Seu Estoque atual é de ${this.quantidade}`);
   }
 
-  repor(qtdeEntrada) {
+  Repor(qtdeEntrada) {
     this.quantidade += qtdeEntrada;
     console.log(`Seu Estoque atual é de ${this.quantidade}`);
   }
 
-  mostrar() {
-    console.log(`O produto ${this.nome} possui ${this.quantidade} unidades em estoque.`);
+  Mostrar() {
+    console.log(
+      `O produto ${this.nome} possui ${this.quantidade} unidades em estoque.`
+    );
   }
 
-  atualizarPreco(atualizar){
+  AtualizarPreco(atualizar) {
     this.preco = atualizar;
     console.log(`Preço alterado com sucesso: preço atual R$ ${this.preco}`);
-
   }
 }
 
 let produto = new Produto("Caneta", "1,50", 10);
-produto.vender(5);
-produto.repor(6);
-produto.mostrar();
-produto.atualizarPreco("2,00")
+produto.Vender(5);
+produto.Repor(6);
+produto.Mostrar();
+produto.AtualizarPreco("2,00");
 
 console.log(produto);
